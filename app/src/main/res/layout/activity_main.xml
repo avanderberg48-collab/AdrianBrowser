@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D1117">
+
+    <!-- Top toolbar: back, forward, refresh, URL bar, bookmark, tabs -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:background="#161B22" android:paddingStart="4dp" android:paddingEnd="4dp">
+
+        <ImageButton android:id="@+id/btnBack"
+            android:layout_width="40dp" android:layout_height="40dp"
+            android:src="@android:drawable/ic_media_previous"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"/>
+
+        <ImageButton android:id="@+id/btnForward"
+            android:layout_width="40dp" android:layout_height="40dp"
+            android:src="@android:drawable/ic_media_next"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Forward"/>
+
+        <ImageButton android:id="@+id/btnRefresh"
+            android:layout_width="40dp" android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_rotate"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Refresh"/>
+
+        <EditText android:id="@+id/urlBar"
+            android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1"
+            android:background="#21262D" android:textColor="#E6EDF3" android:textColorHint="#8B949E"
+            android:hint="Search or enter URL" android:textSize="14sp"
+            android:paddingStart="12dp" android:paddingEnd="8dp"
+            android:imeOptions="actionGo" android:inputType="textUri"
+            android:singleLine="true" android:contentDescription="Address bar"/>
+
+        <ImageButton android:id="@+id/btnBookmark"
+            android:layout_width="40dp" android:layout_height="40dp"
+            android:src="@android:drawable/btn_star_big_off"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Bookmark this page"/>
+
+        <FrameLayout android:layout_width="44dp" android:layout_height="40dp">
+            <ImageButton android:id="@+id/btnTabs"
+                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Open tabs"/>
+            <TextView android:id="@+id/tvTabCount"
+                android:layout_width="18dp" android:layout_height="18dp"
+                android:layout_gravity="top|end" android:layout_marginTop="2dp" android:layout_marginEnd="2dp"
+                android:background="#238636" android:textColor="#fff" android:textSize="10sp"
+                android:gravity="center" android:text="1"/>
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Progress bar -->
+    <ProgressBar android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="3dp"
+        android:max="100" android:visibility="gone"
+        android:progressTint="#58A6FF"/>
+
+    <!-- WebView container -->
+    <FrameLayout android:id="@+id/webContainer"
+        android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"/>
+
+    <!-- Bottom navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent" android:layout_height="56dp"
+        android:background="#161B22"
+        app:itemIconTint="#8B949E"
+        app:itemTextColor="#8B949E"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"/>
+
+</LinearLayout>
